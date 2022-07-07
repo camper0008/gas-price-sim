@@ -1,13 +1,19 @@
 import "./Grid.scss";
-import House from "./House";
+import { House, HouseBuyButton } from "./House";
+import { StateManager } from "./StateManager";
 
-function Grid() {
+interface Props {
+    manager: StateManager;
+}
+
+function Grid({ manager }: Props) {
     return (
         <div className="grid">
-            <House bought />
-            <House />
-            <House />
-            <House />
+            {manager.houses.map((house) => (
+                <House manager={manager} houseId={house.id} />
+            ))}
+
+            <HouseBuyButton manager={manager} />
         </div>
     );
 }

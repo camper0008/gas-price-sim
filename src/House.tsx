@@ -3,44 +3,61 @@ import "./House.scss";
 import { randomPeople } from "./rng";
 import { StateManager } from "./StateManager";
 
-interface Props {
+interface HouseProps {
     houseId: number;
     manager: StateManager;
 }
 
-function House({ houseId, manager }: Props) {
-    const isBought = manager.houseBought(houseId);
+interface HouseBuyButtonProps {
+    manager: StateManager;
+}
+
+export function HouseBuyButton({ manager }: HouseBuyButtonProps) {
+    return (
+        <button className="house-container" onClick={() => manager.buyHouse()}>
+            <div className={"house interactable"}>
+                <div className="house-status">{"➕"}</div>
+            </div>
+        </button>
+    );
+}
+
+export function House({ houseId, manager }: HouseProps) {
     return (
         <div className="house-container">
-            <div className={"house " + (isBought ? "bought" : "interactable")}>
+            <div className={"house bought"}>
                 <div className="house-status">
-                    {!isBought ? "➕" : <BoughtHouseStatus />}
+                    <BoughtHouseStatus manager={manager} houseId={houseId} />
                 </div>
             </div>
         </div>
     );
 }
 
-function BoughtHouseStatus() {
-    const [people, setPeople] = useState(1);
-
+function BoughtHouseStatus({ houseId, manager }: HouseProps) {
+    const people = manager.people(houseId);
     return (
         <>
             <div className="house-icon">
-                <button className="interactable">{"💣"}</button>
+                <button
+                    className="interactable"
+                    onClick={() => manager.sellHouse(houseId)}
+                >
+                    {"❌"}
+                </button>
                 <span>{"🏠"}</span>
             </div>
-            <div className="house-person">{randomPeople(people, 1)}</div>
+            <div className="house-person">{randomPeople(people, houseId)}</div>
             <div className="house-buttons">
                 <button
                     className={people === 1 ? "disabled" : "interactable"}
-                    onClick={() => setPeople(Math.max(people - 1, 1))}
+                    onClick={() => manager.decreasePeople(houseId)}
                 >
                     {"➖"}
                 </button>
                 <button
                     className={people === 6 ? "disabled" : "interactable"}
-                    onClick={() => setPeople(Math.min(people + 1, 6))}
+                    onClick={() => manager.increasePeople(houseId)}
                 >
                     {"➕"}
                 </button>
@@ -48,5 +65,3 @@ function BoughtHouseStatus() {
         </>
     );
 }
-
-export default House;

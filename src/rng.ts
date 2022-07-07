@@ -4,7 +4,6 @@ function randomItem(arr: string[], rng: RNG) {
 }
 
 export function randomPeople(count: number, houseNumber: number) {
-    console.log(houseNumber);
     const rng = new RNG(1 + houseNumber ** 2);
     const people = ["👩", "👨", "🧑"];
     const skintones = ["🏻", "🏼", "🏽", "🏾", "🏿"];
