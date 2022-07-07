@@ -1,29 +1,6 @@
 import { useState } from "react"
 import "./House.scss"
-
-function randomNumber(max: number) {
-    const { floor, random } = Math
-    return floor(random() * max)
-}
-
-function randomItem(arr: string[]) {
-    return arr[randomNumber(arr.length)]
-}
-
-function randomPerson(count: number) {
-    const people = ["👩", "👨", "🧑"]
-    const skintones = ["🏻", "🏼", "🏽", "🏾", "🏿"]
-    const uniqueTrait = ["‍🦰", "‍🦲", "‍🦳", "‍🦱"]
-    uniqueTrait.push(...["", "", "", "", "", "", "", ""])
-
-    let result = ""
-    for (let i = 0; i < count; i++) {
-        result +=
-            randomItem(people) + randomItem(skintones) + randomItem(uniqueTrait)
-    }
-
-    return result
-}
+import { randomPeople } from "./rng"
 
 function House(props) {
     return (
@@ -47,7 +24,7 @@ function BoughtHouseStatus(props) {
     return (
         <>
             <div className="house-icon">{"🏠"}</div>
-            <div className="house-person">{randomPerson(people)}</div>
+            <div className="house-person">{randomPeople(people, 1)}</div>
             <div className="house-buttons">
                 <button
                     className={people === 1 ? "disabled" : "interactable"}
