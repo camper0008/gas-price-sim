@@ -2,18 +2,17 @@
     width: 225px;
     height: 225px;
     border-radius: 1.1rem;
+    padding: 1rem;
     background-color: var(--clr-bought);
 
     &:not(.bought) {
         background-color: var(--clr-purchaseable);
 
         cursor: pointer;
+    }
 
-        &:hover {
-        }
-
-        &:active {
-        }
+    ::selection {
+        background-color: transparent;
     }
 
     .house-status {
@@ -35,6 +34,7 @@
         .house-buttons {
             button {
                 border: unset;
+                font-size: 1rem;
                 background-color: #fff;
                 padding: 0.5rem;
                 border-radius: 0.4rem;
@@ -52,10 +52,6 @@
 
                 &.disabled {
                     background-color: #aaa;
-                }
-
-                &::selection {
-                    background-color: transparent;
                 }
             }
         }
