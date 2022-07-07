@@ -1,6 +1,5 @@
-import { useState } from "react";
 import "./House.scss";
-import { randomPeople } from "./rng";
+import { randomPeople } from "./peopleGen";
 import { StateManager } from "./StateManager";
 
 interface HouseProps {

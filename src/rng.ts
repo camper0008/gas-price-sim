@@ -1,27 +1,9 @@
-function randomItem(arr: string[], rng: RNG) {
+export function randomItem(arr: string[], rng: RNG) {
     const idx = rng.nextRange(0, arr.length);
     return arr[idx];
 }
 
-export function randomPeople(count: number, houseNumber: number) {
-    const rng = new RNG(1 + houseNumber ** 2);
-    const people = ["👩", "👨", "🧑"];
-    const skintones = ["🏻", "🏼", "🏽", "🏾", "🏿"];
-    const uniqueTrait = ["‍🦰", "‍🦲", "‍🦳", "‍🦱"];
-    uniqueTrait.push(...["", "", "", "", "", "", "", "", "", "", "", ""]);
-
-    let result = "";
-    for (let i = 0; i < count; i++) {
-        result +=
-            randomItem(people, rng) +
-            randomItem(skintones, rng) +
-            randomItem(uniqueTrait, rng);
-    }
-
-    return result;
-}
-
-class RNG {
+export class RNG {
     private m: number;
     private a: number;
     private c: number;
