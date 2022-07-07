@@ -9,7 +9,7 @@ export function randomPeople(count: number, houseNumber: number) {
     const people = ["👩", "👨", "🧑"]
     const skintones = ["🏻", "🏼", "🏽", "🏾", "🏿"]
     const uniqueTrait = ["‍🦰", "‍🦲", "‍🦳", "‍🦱"]
-    uniqueTrait.push(...["", "", "", "", "", "", "", ""])
+    uniqueTrait.push(...["", "", "", "", "", "", "", "", "", "", "", ""])
 
     let result = ""
     for (let i = 0; i < count; i++) {
@@ -37,12 +37,12 @@ class RNG {
         this.state = seed
     }
 
-    nextInt = function () {
+    nextInt() {
         this.state = (this.a * this.state + this.c) % this.m
         return this.state
     }
 
-    nextRange = function (start: number, end: number) {
+    nextRange(start: number, end: number) {
         // returns in range [start, end): including start, excluding end
         // can't modulu nextInt because of weak randomness in lower bits
         var rangeSize = end - start

@@ -1,29 +1,35 @@
 import { useState } from "react"
 import "./House.scss"
 import { randomPeople } from "./rng"
+import { StateManager } from "./StateManager"
 
-function House(props) {
+interface Props {
+    houseId: number
+    manager: StateManager
+}
+
+function House({ houseId, manager }: Props) {
+    const isBought = manager.houseBought(houseId)
     return (
         <div className="house-container">
-            <div
-                className={
-                    "house " + (props.bought ? "bought" : "interactable")
-                }
-            >
+            <div className={"house " + (isBought ? "bought" : "interactable")}>
                 <div className="house-status">
-                    {!props.bought ? "➕" : <BoughtHouseStatus />}
+                    {!isBought ? "➕" : <BoughtHouseStatus />}
                 </div>
             </div>
         </div>
     )
 }
 
-function BoughtHouseStatus(props) {
+function BoughtHouseStatus() {
     const [people, setPeople] = useState(1)
 
     return (
         <>
-            <div className="house-icon">{"🏠"}</div>
+            <div className="house-icon">
+                <button className="interactable">{"💣"}</button>
+                <span>{"🏠"}</span>
+            </div>
             <div className="house-person">{randomPeople(people, 1)}</div>
             <div className="house-buttons">
                 <button

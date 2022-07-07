@@ -18,6 +18,7 @@ code {
 }
 
 .interactable {
+    cursor: pointer;
     transition: 50ms transform ease-in;
 
     &:hover {
