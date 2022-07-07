@@ -1,0 +1,63 @@
+.house {
+    width: 225px;
+    height: 225px;
+    border-radius: 1.1rem;
+    background-color: var(--clr-bought);
+
+    &:not(.bought) {
+        background-color: var(--clr-purchaseable);
+
+        cursor: pointer;
+
+        &:hover {
+        }
+
+        &:active {
+        }
+    }
+
+    .house-status {
+        display: grid;
+        justify-content: center;
+        align-items: center;
+        font-size: 1.2rem;
+        height: 100%;
+        text-align: center;
+
+        .house-icon {
+            font-size: 2rem;
+        }
+
+        .house-person {
+            font-size: 2.25rem;
+        }
+
+        .house-buttons {
+            button {
+                border: unset;
+                background-color: #fff;
+                padding: 0.5rem;
+                border-radius: 0.4rem;
+                line-height: 1;
+                &:first-of-type {
+                    margin-right: 1rem;
+                }
+
+                &:hover {
+                    cursor: pointer;
+                    &.disabled {
+                        cursor: not-allowed;
+                    }
+                }
+
+                &.disabled {
+                    background-color: #aaa;
+                }
+
+                &::selection {
+                    background-color: transparent;
+                }
+            }
+        }
+    }
+}
