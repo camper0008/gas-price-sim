@@ -1,5 +1,5 @@
-import "./Grid.scss"
-import House from "./House"
+import "./Grid.scss";
+import House from "./House";
 
 function Grid() {
     return (
@@ -9,7 +9,7 @@ function Grid() {
             <House />
             <House />
         </div>
-    )
+    );
 }
 
-export default Grid
+export default Grid;

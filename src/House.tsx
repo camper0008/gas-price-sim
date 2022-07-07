@@ -1,15 +1,15 @@
-import { useState } from "react"
-import "./House.scss"
-import { randomPeople } from "./rng"
-import { StateManager } from "./StateManager"
+import { useState } from "react";
+import "./House.scss";
+import { randomPeople } from "./rng";
+import { StateManager } from "./StateManager";
 
 interface Props {
-    houseId: number
-    manager: StateManager
+    houseId: number;
+    manager: StateManager;
 }
 
 function House({ houseId, manager }: Props) {
-    const isBought = manager.houseBought(houseId)
+    const isBought = manager.houseBought(houseId);
     return (
         <div className="house-container">
             <div className={"house " + (isBought ? "bought" : "interactable")}>
@@ -18,11 +18,11 @@ function House({ houseId, manager }: Props) {
                 </div>
             </div>
         </div>
-    )
+    );
 }
 
 function BoughtHouseStatus() {
-    const [people, setPeople] = useState(1)
+    const [people, setPeople] = useState(1);
 
     return (
         <>
@@ -46,7 +46,7 @@ function BoughtHouseStatus() {
                 </button>
             </div>
         </>
-    )
+    );
 }
 
-export default House
+export default House;
