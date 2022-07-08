@@ -1,18 +1,13 @@
-.house-container {
-    all: unset;
-}
-
 .house {
-    width: 225px;
-    height: 225px;
+    width: 250px;
+    height: 250px;
     border-radius: 1.1rem;
     padding: 1rem;
     background-color: var(--clr-bought);
+    border: unset;
 
     &:not(.bought) {
         background-color: var(--clr-purchaseable);
-
-        cursor: pointer;
     }
 
     ::selection {
@@ -29,20 +24,13 @@
         text-align: center;
 
         .house-icon {
-            display: grid;
-            grid-template-columns: 2em 1fr 2em;
+            text-align: left;
+            padding: 0 1rem;
             font-size: 2rem;
-            grid-template-areas: "bomb none house";
-
-            span {
-                pointer-events: none;
-                grid-area: house;
-            }
 
             button {
                 border: unset;
                 background-color: unset;
-                grid-area: bomb;
                 font-size: inherit;
             }
         }

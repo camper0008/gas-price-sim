@@ -13,21 +13,20 @@ interface HouseBuyButtonProps {
 
 export function HouseBuyButton({ manager }: HouseBuyButtonProps) {
     return (
-        <button className="house-container" onClick={() => manager.buyHouse()}>
-            <div className={"house interactable"}>
-                <div className="house-status">{"➕"}</div>
-            </div>
+        <button
+            className={"house interactable"}
+            onClick={() => manager.buyHouse()}
+        >
+            <div className="house-status">{"➕"}</div>
         </button>
     );
 }
 
 export function House({ houseId, manager }: HouseProps) {
     return (
-        <div className="house-container">
-            <div className={"house bought"}>
-                <div className="house-status">
-                    <BoughtHouseStatus manager={manager} houseId={houseId} />
-                </div>
+        <div className={"house bought"}>
+            <div className="house-status">
+                <BoughtHouseStatus manager={manager} houseId={houseId} />
             </div>
         </div>
     );
@@ -44,7 +43,6 @@ function BoughtHouseStatus({ houseId, manager }: HouseProps) {
                 >
                     {"❌"}
                 </button>
-                <span>{"🏠"}</span>
             </div>
             <div className="house-person">{randomPeople(people, houseId)}</div>
             <div className="house-buttons">
