@@ -1,0 +1,17 @@
+#header {
+    padding: 1rem;
+    background-color: var(--clr-bought);
+    color: #242424;
+
+    input,
+    .money-earned {
+        border: unset;
+        background-color: white;
+        padding: 0.5rem;
+        font-size: 0.9em;
+        border-radius: 0.2rem;
+    }
+    input {
+        width: 8ch;
+    }
+}

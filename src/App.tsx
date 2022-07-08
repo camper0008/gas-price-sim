@@ -1,11 +1,8 @@
 import "./App.scss";
 import Grid from "./Grid";
+import Header from "./Header";
 import { StateManager, House } from "./StateManager";
 import { useState } from "react";
-
-interface Props {
-    manager: StateManager;
-}
 
 function App() {
     const [houses, setHouses] = useState([] as House[]);
@@ -18,6 +15,7 @@ function App() {
     );
     return (
         <div className="App">
+            <Header manager={manager} />
             <Grid manager={manager} />
         </div>
     );
