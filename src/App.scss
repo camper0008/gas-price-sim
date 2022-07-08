@@ -1,3 +1,22 @@
-body {
-    background-color: #242424;
+.App {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+
+    & > .grid {
+        flex: 1;
+    }
+}
+
+.interactable {
+    cursor: pointer;
+    transition: 50ms transform ease-in;
+
+    &:hover {
+        transform: scale(1.04);
+    }
+
+    &:active {
+        transform: scale(1);
+    }
 }

@@ -1,5 +1,6 @@
 import "./Header.scss";
 import { useState } from "react";
+import { StateManager } from "./StateManager";
 
 const calculateMoney = (
     manager: StateManager,

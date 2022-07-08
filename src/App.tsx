@@ -1,6 +1,7 @@
 import "./App.scss";
 import Grid from "./Grid";
 import Header from "./Header";
+import Footer from "./Footer";
 import { StateManager, House } from "./StateManager";
 import { useState } from "react";
 
@@ -17,6 +18,7 @@ function App() {
         <div className="App">
             <Header manager={manager} />
             <Grid manager={manager} />
+            <Footer />
         </div>
     );
 }
